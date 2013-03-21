@@ -4,6 +4,10 @@ A Clojure library for executing expressions safely.
 
 ## Usage
 
+To use in Leiningen:
+
+    [safely "1.0.0"]
+
 Running the following:
 
     (safely
