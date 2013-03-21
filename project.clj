@@ -1,4 +1,4 @@
-(defproject safely "0.1.0-SNAPSHOT"
+(defproject safely "1.0.0"
   :description "A Clojure library for executing expressions safely. "
   :url "https://github.com/bryanesmith/safely"
   :license {:name "Eclipse Public License"
