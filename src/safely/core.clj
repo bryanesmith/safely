@@ -1,5 +1,10 @@
 (ns safely.core)
 
+(defmacro do-safely [hdl & exprs]
+  `(try
+    (do ~@exprs)
+  (catch Exception e# (~hdl e#))))
+
 (defmacro safely 
   [& exprs]
   (let [fst#     (first exprs)
@@ -7,7 +12,4 @@
         exprs#   (if (nil? opts#) exprs (rest exprs))
         nada#    (fn [& s] identity nil)
         hdl#     (if-not (nil? opts#) (:with opts#) nada#)]
-    `(try
-        (do ~@exprs#)
-      (catch Exception e# (~hdl# e#)))))
-
+    `(safely.core/do-safely ~hdl# ~@exprs#)))
